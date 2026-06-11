@@ -15,7 +15,11 @@
 
             <div class="nav-esquerda">
 
-                <img id="logo" src="images\logo.svg" alt="">
+                <a href="index.html">
+
+                    <img id="logo" src="images\logo.svg" alt="">
+
+                </a>
 
                 <nav id="links-navbar">
                     <a href="">Collections</a>
@@ -121,7 +125,7 @@
         </section>
         <section class="card-produto">
 
-            <span>SNEAKER COMPANY</span>
+            <span id="fabricante">SNEAKER COMPANY</span>
             <h1>Fall Limited Edition Sneakers</h1>
 
             <p class="descricao">
@@ -130,9 +134,30 @@
                 the weather can offer.
             </p>
 
-            <h2>$ 125,00</h2> 
-            <span id="desconto">50%</span>
-            <p>250</p>
+            <div class="container-preco">
+
+                <div class="preco">
+                <h2 id="preco-atual">125</h2> 
+                <span id="desconto">50%</span>
+            </div>
+            
+            <p id="preco-anterior">250</p>
+
+            </div>
+
+            <div class="add-cart">
+                <div class="qtd">
+                    <img class="menos" src="images/icon-minus.svg">
+                    <p class="numero">0</p>
+                    <img class="mais" src="images/icon-plus.svg">
+                </div>
+                <button id="main-botao">
+                    <img id="img-cart-botao" src="images/icon-cart.svg">
+                    <p>Add to cart</p>
+                </button>       
+            </div>
+
+            
 
         </section>
             

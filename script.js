@@ -1,4 +1,35 @@
 
+//------------------------- FORMATAÇÃO DE MOEDA ----------------------------------------
+
+// 1. Seleciona os elementos do HTML
+var precoAtualElemento = document.querySelector("#preco-atual");
+var precoAnteriorElemento = document.querySelector("#preco-anterior");
+
+// 2. Cria o formatador de moeda (Exemplo: Real Brasileiro - R$)
+var formatadorMoeda = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+});
+
+// 3. Função para transformar o texto em moeda
+function aplicarFormatacao(elemento) {
+    if (elemento) {
+        // Pega o texto de dentro da tag (ex: "125") e transforma em número decimal
+        var valorNumerico = parseFloat(elemento.textContent);
+        
+        // Formata o número e joga de volta para o HTML
+        elemento.textContent = formatadorMoeda.format(valorNumerico);
+    }
+}
+
+// 4. Executa a função para os dois preços
+aplicarFormatacao(precoAtualElemento);
+aplicarFormatacao(precoAnteriorElemento);
+
+
+
+// -------------- MODAL LIGHTBOX -------------------------------------------------
+
 /* Open the Modal */
 function openModal() {
   document.getElementById("myModal").style.display = "flex"
