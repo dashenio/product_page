@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* - Weights: 400, 700 para esse projeto */
+
+/* Reset do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Variáveis */
+:root {
+    /* Cores Primárias */
+    --Laranja: hsl(26, 100%, 55%);
+    --Laranja-claro: hsl(25, 100%, 94%);
+
+    /* Neutras */
+    --Azul-escuro: hsl(220, 13%, 13%);
+    --Azul-escuro-acizentado: hsl(219, 9%, 45%);
+    --Azul-acizentado: hsl(220, 14%, 75%);
+    --Azul-claro-acizentado: hsl(223, 64%, 98%);
+    --Branco: hsla(0, 0%, 100%);
+    --Branco-modal: hsla(0, 0%, 100%, 0.75);
+    --Preto: hsl(0, 0%, 0%); 
+    --Preto-modal: hsl(0, 0%, 0%, 0.75); /* Preto com 75% de opacidade para a lightbox */
+
+    /* Tipografia */
+    --Paragrafo: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    font-family: 'Kumbh Sans', sans-serif;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+/* ---------------  NAVBAR -------------------- */
+.navbar, .nav-esquerda, .nav-direita {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    justify-content: space-between;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 60vw;
+    gap: 30px;
+}
+
+.nav-esquerda {
+    align-items: center;
+    justify-content: flex-start;
+    width: 30vh;
+    gap: 4em;
+}
+
+.nav-direita {
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4em;    
+}
+
+#logo, #carrinho {
+    height: 1.5em;
+}
+
+#links-navbar {
+    color: var(--Azul-escuro-acizentado);
+    display: flex;
+    gap: 3em;
+}
+
+#avatar {
+    width: 50px;
+}
+
+hr {
+    width: 60vw;
+    border-top: 2px solid var(--Azul-claro-acizentado);
+}
+
+/* --------------- CONTAINER CONTEUDO -------------------- */
+.conteudo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4em;
+    gap: 3em;
+    width: 60vw;
+}
+
+.card-produto, .imagens-produto {
+    display: flex;
+    flex-direction: column;
+}
+
+/* TEXTO PRODUTO */
+h1, h2, #desconto {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.card-produto span {
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--Azul-escuro-acizentado);
+}
+
+.card-produto {
+    width: 55vh;
+    margin-top: 4em;
+    padding: 1em;
+}
+
+.descricao {
+    font-size: var(--Paragrafo);
+    color: var(--Azul-escuro-acizentado);
+}
+
+/* IMAGENS PRODUTO (PÁGINA PRINCIPAL) */
+.imagens-produto {
+    margin: 0 0.5em 0 3.5em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column; /* Força a imagem grande a ficar em cima e a linha embaixo */
+    width: 29.7vw;         /* Reduzido em 10% (De 33vw para 29.7vw) */
+    min-width: 315px;      /* Reduzido em 10% (De 350px para 315px) */
+}
+
+/* Força a imagem de destaque fora do modal a se comportar perfeitamente */
+.imagens-produto .foto-principal-pagina,
+.imagens-produto .imagem-destaque {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* --------------- LIGHTBOX (MODAL) -------------------- */
+.modal {
+    display: none;       /* Controlado via JS (mude para 'flex' no script.js ao abrir) */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;         /* Cobre o fundo da tela inteira */
+    height: 100%;        /* Cobre o fundo da tela inteira */
+    background-color: var(--Preto-modal);
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: transparent;
+    width: 29.7vw;         /* Reduzido em 10% (De 33vw para 29.7vw) */
+    min-width: 315px;      /* Reduzido em 10% (De 350px para 315px) */
+    margin: 0;
+    padding: 0;
+}
+
+/* Botão fechar modal */
+.close {
+    position: absolute;
+    top: -30px;          /* Joga o X para cima da imagem principal */
+    right: 0;
+    cursor: pointer;
+}
+
+/* Slides do Modal */
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+     border-radius: 15px;
+     width: 100%;
+     display: block;
+}
+
+/* Botões Prev & Next */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;            
+    transform: translateY(-50%);
+    width: 45px;         /* Reduzido em 10% (De 50px para 45px) */
+    padding: 14px;       /* Ajustado proporcionalmente */
+    aspect-ratio: 1/1;
+    background-color: var(--Branco); 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 2;
+    transition: transform 0.2s ease;
+}
+
+.prev { left: -20px; }  /* Joga a seta levemente para fora da borda esquerda */
+.next { right: -20px; } /* Joga a seta levemente para fora da borda direita */
+
+.prev:hover, .next:hover {
+    transform: translateY(-50%);
+}
+
+.prev:hover img, 
+.next:hover img,
+.close:hover img {
+    /* Transforma o ícone preto original exatamente no tom Laranja */
+    filter: invert(52%) sepia(85%) saturate(1914%) hue-rotate(346deg) brightness(101%) contrast(101%);
+    transition: filter 0.2s ease;
+}
+
+/* --------------- PADRONIZAÇÃO DAS MINIATURAS (LINHA E MODAL) -------------------- */
+.linha, 
+.modal-miniaturas {
+    display: flex;
+    justify-content: space-between; /* Alinha as extremidades perfeitamente com a foto de cima */
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* Unificando o tamanho das caixinhas das miniaturas (4 colunas de 22%) */
+.linha .item,
+.modal-miniaturas .item {
+    width: 22%;
+    background-color: var(--Branco); /* Fundo branco fixo para impedir a transparência com o fundo do modal */
+    border-radius: 10px;             /* Mantém o contorno arredondado da caixa */
+    overflow: hidden;                /* Previne que a imagem passe do contorno do item */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Unificando o tamanho e formato das imagens miniaturas */
+.linha .item img,
+.modal-miniaturas .item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;    /* Força um quadrado perfeito */
+    object-fit: cover;      /* Impede que a foto amasse ou distorça */
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--Branco);
+}
+
+/* Efeito Hover na Página Principal (fora do modal) */
+.linha .item img:hover {
+    opacity: 0.5;
+}
+
+.linha .item:has(img:hover) {
+    box-shadow: 0 0 0 3px var(--Laranja), 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+
+/* Efeito Hover e Estado Ativo dentro do Modal */
+.modal-miniaturas .item img {
+    opacity: 1; 
+}
+
+.modal-miniaturas .item img:hover,
+.modal-miniaturas .item img.active {
+    opacity: 0.5;
+}
+
+.modal-miniaturas .item:has(img:hover),
+.modal-miniaturas .item:has(img.active) {
+    box-shadow: 0 0 0 3px var(--Laranja); 
+}
