@@ -68,3 +68,56 @@ function showSlides(n){
   slides[slideIndex-1].style.display = "block"
   dots[slideIndex-1].className += " active";
 }
+
+
+// ------- Lógica botões da Main -----------
+
+const mais = document.querySelector("#mais");
+const menos = document.querySelector("#menos");
+const qtd = document.querySelector("#numero");
+
+let numero = 0;
+
+function adicionar(){
+  qtd.innerHTML = ++numero;
+}
+
+function retirar(){
+  if(numero > 0)
+    qtd.innerHTML = --numero;
+  else
+    numero = numero
+}
+
+// ----------- Lógica Carrinho --------------------
+
+const botaoCarrinho = document.querySelector('#main-botao');
+let carrinho = false
+let qtdCarrinho = 0;
+
+
+function proCarrinho(){
+  if(numero !== 0){
+    carrinho = true;
+    qtdCarrinho += numero
+  }
+}
+
+// ------- Lógica botões do carrinho -----------
+
+const maisC = document.querySelector("#mais-c");
+const menosC = document.querySelector("#menos-c");
+const qtdC = document.querySelector("#numero-c");
+
+let numeroCarrinho;
+
+function adicionarCart(){
+  qtdC.innerHTML = ++numeroCarrinho;
+}
+
+function retirarCart(){
+  if(numeroCarrinho > 0)
+    qtdC.innerHTML = --numeroCarrinho;
+  else
+    carrinho = false;
+}

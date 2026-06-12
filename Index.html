@@ -4,20 +4,20 @@
     <head>
         <meta charset="utf-8">
         <title>Product Page</title>
-        <meta name="description" content="Uma página de produto construída para testar conhecimentos de HTML/CSS/JS">
+        <meta name="description" content="A page built to test knowledge on HTML/CSS/JS.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
     
     <body>
 
-        <div class="navbar">
+        <header class="navbar">
 
             <div class="nav-esquerda">
 
                 <a href="index.html">
 
-                    <img id="logo" src="images\logo.svg" alt="">
+                    <img id="logo" src="images\logo.svg" alt="Sneakers shop logo">
 
                 </a>
 
@@ -36,11 +36,11 @@
                 <img id="avatar" src="images/image-avatar.png" alt="" >
             </div>    
 
-        </div>
+        </header>
 
         <hr>
 
-        <section class="conteudo">
+        <main class="conteudo">
 
             <section class="imagens-produto">
 
@@ -147,9 +147,15 @@
 
             <div class="add-cart">
                 <div class="qtd">
-                    <img class="menos" src="images/icon-minus.svg">
-                    <p class="numero">0</p>
-                    <img class="mais" src="images/icon-plus.svg">
+                    <div id="menos" onClick="retirar()">
+                        <img  src="images/icon-minus.svg">
+                    </div>
+                    
+                    <p id="numero">0</p>
+
+                    <div id="mais" onClick="adicionar()">
+                        <img src="images/icon-plus.svg">
+                    </div>     
                 </div>
                 <button id="main-botao">
                     <img id="img-cart-botao" src="images/icon-cart.svg">
@@ -161,7 +167,7 @@
 
         </section>
             
-        </section>       
+    </main>       
         
         <script src="script.js" async defer></script>
     </body>

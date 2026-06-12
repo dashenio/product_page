@@ -200,7 +200,7 @@ h2 {
 }
 
 .qtd, #main-botao {
-   
+    height: 60px;
     align-items: center;
     padding: 15px;
     margin-top: 1em;
@@ -248,37 +248,41 @@ h2 {
     filter: brightness(0);
 }
 
-.mais {
-    width: 15px;
-    height: 14px;   
+#mais {
+    display: flex;
+    width: 20px;
+    height: 30px;
+    align-items: center;   
 }
 
-.mais:hover {
+#mais:hover {
     cursor: pointer;
     transform: scale(1.1); 
 }
 
-.mais:active {
+#mais:active {
     cursor: pointer;
     transform: scale(0.95); 
 }
 
-.menos {
-    width: 15px;
-    height: 5px;
+#menos {
+    display: flex;
+    width: 20px;
+    height: 30px;
+    align-items: center;
 }
 
-.menos:hover {
+#menos:hover {
     cursor: pointer;
     transform: scale(1.1); 
 }
 
-.menos:active {
+#menos:active {
     cursor: pointer;
     transform: scale(0.95); 
 }
 
-.numero {
+#numero {
     font-weight: 700;
 }
 
